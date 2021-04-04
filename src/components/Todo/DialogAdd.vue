@@ -1,3 +1,4 @@
+<!--This diolog or popup is for adding task. Allows user to input task description and date-->
 <template>
     <v-dialog
       :value="true"
@@ -12,6 +13,10 @@
 
         <v-card-text>
           
+          <!--
+          Text field where user can input the date
+          When user presses 'Enter' key, call addTask()
+          -->
           <v-text-field 
           v-model="taskDate"
           full-width
@@ -21,6 +26,10 @@
           placeholder="Enter date here"
           />
 
+          <!--
+          Text field where user can input the date
+          When user presses 'Enter' key, call addTask()
+          -->
           <v-text-field 
           v-model="taskDescription"
           full-width
@@ -44,7 +53,7 @@
             Cancel
           </v-btn>
 
-          <!--When 'Save" btn is clicked, save task. Calls saveTask() in DialogEdit.vue-->
+          <!--When 'Add" btn is clicked, save task. Calls addTask() in DialogAdd.vue-->
           <v-btn
             color="red"
             text

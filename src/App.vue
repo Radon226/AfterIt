@@ -38,7 +38,8 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
+    <!--The app bar is the top bar with the water background-->
+    <v-app-bar    
       app
       height=100px
       color="primary"
