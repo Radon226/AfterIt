@@ -1,3 +1,4 @@
+<!--This diolog or popup is for editing task. Allows user to input task description and date-->
 <template>
     <v-dialog
       :value="true"
@@ -12,6 +13,10 @@
 
         <v-card-text>
           
+          <!--
+          Text field where user can input the date
+          When user presses 'Enter' key, call saveTask()
+          -->
           <v-text-field 
           v-model="taskDate"
           full-width
@@ -20,6 +25,10 @@
           @keyup.enter="saveTask"
           />
 
+          <!--
+            Text field where user can input the task description
+            When user presses 'Enter' key, call saveTask()
+          -->
           <v-text-field 
           v-model="taskDescription"
           full-width

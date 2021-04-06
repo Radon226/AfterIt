@@ -20,8 +20,26 @@ export default new Vuex.Store({
       },
       {
         id: 3,
-        date: '04/05/21',
-        description: 'Physics group homework',
+        date: '04/12/21',
+        description: 'math homework',
+        done: false
+      },
+      {
+        id: 4,
+        date: '04/23/21',
+        description: 'english homework',
+        done: false
+      },
+      {
+        id: 5,
+        date: '04/15/21',
+        description: 'buy food',
+        done: false
+      },
+      {
+        id: 6,
+        date: '04/21/21',
+        description: 'go outside',
         done: false
       },
     ],

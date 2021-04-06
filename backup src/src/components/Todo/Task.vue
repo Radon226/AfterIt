@@ -8,7 +8,7 @@
             <v-list-item-action>
               <v-checkbox
                 :input-value="task.done"
-                color="primary"
+                color="cyan"
               ></v-checkbox>
             </v-list-item-action>
 
@@ -31,7 +31,7 @@
                 @click.stop="dialogs.edit = true"
                 icon
               >
-                <v-icon color="primary lighten-1">mdi-pencil-outline</v-icon>
+                <v-icon color="cyan lighten-1">mdi-pencil-outline</v-icon>
               </v-btn>
             </v-list-item-action>
 
@@ -40,7 +40,7 @@
                 @click.stop="dialogs.delete = true"
                 icon
               >
-                <v-icon color="primary lighten-1">mdi-delete</v-icon>
+                <v-icon color="cyan">mdi-delete</v-icon>
               </v-btn>
             </v-list-item-action>
 

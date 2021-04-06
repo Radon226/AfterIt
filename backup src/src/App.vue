@@ -38,7 +38,8 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
+    <!--The app bar is the top bar with the water background-->
+    <v-app-bar    
       app
       height=100px
       color="primary"
@@ -80,3 +81,13 @@
     }
   }
 </script>
+
+<style lang="sass">
+  .no-tasks
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    opacity: 0.5
+    size: 100
+</style>

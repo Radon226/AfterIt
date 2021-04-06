@@ -1,30 +1,45 @@
-<!--This is the addTask component where user inputs task and then add it, must be imported to Home-->
+<!--This is the addTask btn where DialgoAdd is displayed, must be imported to Home-->
 <template> 
-  <v-text-field
-      v-model="newTaskTitle"
-      @click:append="addTask"
-      @keyup.enter="addTask"
-      class="pa-3"
-      outlined
-      label="Add Task"
-      append-icon="mdi-plus"
-      hide-details
-      clearable
-  ></v-text-field>
+  
+  <div>
+    <v-list-item-action> <!--Add task button, if clicked, send add dialog-->
+      <v-btn 
+      rounded
+      width=200
+      height=50
+      @click.stop="dialogs.add = true"
+      block
+      dark
+      color="cyan lighten-2"
+      >
+        Add task
+      </v-btn>
+    </v-list-item-action>
+
+    <!--Closes dialogue, emits 'close' from 'DialogAdd.vue'-->
+    <dialog-add 
+    v-if="dialogs.add" 
+    @close="dialogs.add = false" 
+    :task="task"
+    />
+
+  </div>
+  
 </template>
 
 <script>
 export default {
+  props: ['task'],
   data() {
     return {
-      newTaskTitle: '',
+      dialogs: {
+          add: false
+      }
     }
   },
-  methods: {
-    addTask() {
-      this.$store.dispatch('addTask', this.newTaskTitle)  //uses the action method in index.js
-      this.newTaskTitle = ''                              //now, when add task, notification displays
-    }
-  },
+  components: {
+      'dialog-add': require('@/components/Todo/DialogAdd.vue').default
+  }
 }
 </script>
+

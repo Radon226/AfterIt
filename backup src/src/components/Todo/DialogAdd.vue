@@ -1,3 +1,4 @@
+<!--This diolog or popup is for adding task. Allows user to input task description and date-->
 <template>
     <v-dialog
       :value="true"
@@ -7,25 +8,35 @@
       <v-card>
 
         <v-card-title class="headline">
-          Edit task?
+          Add task?
         </v-card-title>
 
         <v-card-text>
           
+          <!--
+          Text field where user can input the date
+          When user presses 'Enter' key, call addTask()
+          -->
           <v-text-field 
           v-model="taskDate"
           full-width
           single-line
           flat
-          @keyup.enter="saveTask"
+          @keyup.enter="addTask"
+          placeholder="Enter date here"
           />
 
+          <!--
+          Text field where user can input the date
+          When user presses 'Enter' key, call addTask()
+          -->
           <v-text-field 
           v-model="taskDescription"
           full-width
           single-line
           flat
-          @keyup.enter="saveTask"
+          @keyup.enter="addTask"
+          placeholder="Enter task here"
           />
       
         </v-card-text>     
@@ -42,17 +53,14 @@
             Cancel
           </v-btn>
 
-          <!--
-            When 'Save" btn is clicked, save task. Calls saveTask() in DialogEdit.vue
-            Disable button if nothing is changed or text fields are empty
-          -->
+          <!--When 'Add" btn is clicked, save task. Calls addTask() in DialogAdd.vue-->
           <v-btn
             color="red"
             text
-            @click="saveTask"  
+            @click="addTask"  
             :disabled="taskInvalid"
           >
-            Save
+            Add
           </v-btn>
 
         </v-card-actions>
@@ -70,32 +78,27 @@ export default {
       taskDate: null
     }
   },
-  computed: {
-    //Returns true or false depending if the task is not edited or field is empty
+   computed: {
+    //Returns true or false depending if field is empty
     taskInvalid() { 
-      return !this.taskDescription || !this.taskDate || 
-              this.taskDescription === this.task.description && this.taskDate === this.task.date
+      return !this.taskDescription || !this.taskDate 
     }
   },
   methods: {
-    saveTask() {    //Use index.js for updateTask()
-      if(!this.taskInvalid) { //if task is valid, save task
+    addTask() {    //Use index.js for addTask()
+      if(!this.taskInvalid) {
         let payload = { //think of payload as a placeholder object, this acts as a task
-          id: this.task.id,
           description: this.taskDescription,
           date: this.taskDate
         }
-        this.$store.dispatch('updateTask', payload) 
+        this.$store.dispatch('addTask', payload) 
         this.$emit('close')
-      } 
-      else {
-        console.log('Empty task field or no edit was done')
       }
+      else {
+        console.log('Empty task field')
+      }
+          
     }
-  },
-  mounted() {
-    this.taskDescription = this.task.description
-    this.taskDate = this.task.date
   }
 }
 </script>

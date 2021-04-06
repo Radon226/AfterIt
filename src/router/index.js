@@ -11,6 +11,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import('../views/Calendar.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

@@ -73,6 +73,7 @@
       drawer: null,
       items: [
           { title: 'Todo', icon: 'mdi-order-bool-ascending-variant', to: '/' },
+          { title: 'Calendar', icon: 'mdi-calendar', to: 'calendar'},
           { title: 'About', icon: 'mdi-help-box', to: 'about' },
         ],
     }),
